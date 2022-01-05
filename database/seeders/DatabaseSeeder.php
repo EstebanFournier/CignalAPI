@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,19 +16,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(UsersSeeder::class);
-        //\App\Models\User::factory(10)->create();
 
-        DB::table('users')->insert([
-            'name' => 'Esteban',
-            'email' => 'esteban@example.org',
-            'password' => Hash::make('12345')
-        ]);
+        $this->call(UsersTableSeeder::class);
+        $this->call(CertificatTableSeeder::class);
 
-        DB::table('users')->insert([
-            'name' => 'charles',
-            'email' => 'charles@example.org',
-            'password' => Hash::make('12345')
-        ]);
+        /** 
+        $faker = Faker::create();
+
+        foreach(range(0, 10) as $_){
+            $certificat = new Certificat();
+            $certificat->projectName = $faker->name();
+            $certificat->type = $faker->word();
+            /** 
+            
+            $certificat->plateform = $faker->word();
+            $certificat->description = $faker->paragraph();
+            $certificat->startDate = $faker->date();
+            $certificat->endDate = $faker->date();
+            $certificat->save();
+            */
+        }
     }
-}

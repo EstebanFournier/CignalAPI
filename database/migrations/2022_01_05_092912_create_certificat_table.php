@@ -13,7 +13,7 @@ class CreateCertificatTable extends Migration
      */
     public function up()
     {
-        Schema::create('certificat', function (Blueprint $table) {
+         Schema::create('certificat', function (Blueprint $table) {
             $table->id();
             $table->string('projectName')->unique();
             $table->string('type');
@@ -21,6 +21,7 @@ class CreateCertificatTable extends Migration
             $table->string('description', 555);
             $table->date('startDate');
             $table->date('endDate');
+//            $table->file('file');
             $table->timestamps();
         });
     }
