@@ -21,7 +21,8 @@ class CreateCertificatTable extends Migration
             $table->string('description', 555);
             $table->date('startDate');
             $table->date('endDate');
-//            $table->file('file');
+            $table->unsignedBigInteger('createdBy')->nullable();
+            $table->foreign('createdBy')->references('id')->on('users');
             $table->timestamps();
         });
     }

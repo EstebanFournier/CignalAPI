@@ -5,24 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Certificat extends Model
+class Email extends Model
 {
     use HasFactory;
 
-    /**
+     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $table = 'certificat';
+    protected $table = 'email';
     protected $fillable = [
-        'projectName',
-        'type',
-        'plateform',
-        'description',
-        'startDate',
-        'endDate',
-        'createdBy',
-        'file',
+        'email',
+        'certificat_id',
+        'user_id',
     ];
 }

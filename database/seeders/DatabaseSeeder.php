@@ -19,21 +19,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersTableSeeder::class);
         $this->call(CertificatTableSeeder::class);
-
-        /** 
-        $faker = Faker::create();
-
-        foreach(range(0, 10) as $_){
-            $certificat = new Certificat();
-            $certificat->projectName = $faker->name();
-            $certificat->type = $faker->word();
-            /** 
-            
-            $certificat->plateform = $faker->word();
-            $certificat->description = $faker->paragraph();
-            $certificat->startDate = $faker->date();
-            $certificat->endDate = $faker->date();
-            $certificat->save();
-            */
-        }
+        $this->call(AlertTableSeeder::class);
+        $this->call(EmailTableSeeder::class);
     }
+}
