@@ -21,8 +21,6 @@ use App\Http\Controllers\EmailController;
 
 // Public routes
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/certificat', [CertificatController::class, 'index']);
-Route::get('/certificat/{id}', [CertificatController::class, 'show']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -30,22 +28,23 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Register route
     Route::post('/register', [AuthController::class, 'register']);
 
-    // Certificat routes
-    Route::post('/certificat', [CertificatController::class, 'store']);
-    
+    // Certificats routes
+    Route::get('/certificat', [CertificatController::class, 'index']);
+    Route::put('/certificat', [CertificatController::class, 'store']);
+    Route::get('/certificat/{id}', [CertificatController::class, 'show']);    
     Route::put('/certificat/{id}', [CertificatController::class, 'update']);
     Route::delete('/certificat/{id}', [CertificatController::class, 'destroy']);
 
-    // Alert routes
+    // Alerts routes
     Route::get('/alert', [AlertController::class, 'index']);
-    Route::post('/alert', [AlertController::class, 'store']);
+    Route::put('/alert', [AlertController::class, 'store']);
     Route::get('/alert/{id}', [AlertController::class, 'show']);
     Route::post('/alert/{id}', [AlertController::class, 'update']);
     Route::delete('/alert/{id}', [AlertController::class, 'destroy']);
     
-    // Email routes
+    // Emails routes
     Route::get('email', [EmailController::class, 'index']);
-    Route::post('email', [EmailController::class, 'store']);
+    Route::put('email', [EmailController::class, 'store']);
     Route::get('email/{id}', [EmailController::class, 'show']);
     Route::post('email/{id}', [EmailController::class, 'update']);
     Route::delete('email/{id}', [EmailController::class, 'destroy']);

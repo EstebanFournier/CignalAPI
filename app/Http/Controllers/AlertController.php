@@ -10,18 +10,18 @@ class AlertController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {
-        return Alert::paginate(5);
+        return Alert::all();
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \App\Models\Alert
      */
     public function store(Request $request)
     {
@@ -38,8 +38,8 @@ class AlertController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Alert  $alert
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Alert  $id
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function show($id)
     {
@@ -50,7 +50,7 @@ class AlertController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Alert  $alert
+     * @param  \App\Models\Alert  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -63,7 +63,7 @@ class AlertController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Alert  $alert
+     * @param  \App\Models\Alert  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
