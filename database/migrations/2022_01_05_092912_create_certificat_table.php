@@ -15,12 +15,12 @@ class CreateCertificatTable extends Migration
     {
          Schema::create('certificat', function (Blueprint $table) {
             $table->id();
-            $table->string('projectName')->unique();
-            $table->string('type');
-            $table->string('plateform');
-            $table->string('description', 555);
-            $table->date('startDate');
-            $table->date('endDate');
+            $table->string('projectName')->nullable()->unique();
+            $table->string('type')->nullable();
+            $table->string('plateform')->nullable();
+            $table->string('description', 555)->nullable();
+            $table->date('startDate')->nullable();
+            $table->date('endDate')->nullable();
             $table->unsignedBigInteger('createdBy')->nullable();
             $table->foreign('createdBy')->references('id')->on('users');
             $table->timestamps();

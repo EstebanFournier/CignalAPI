@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Email;
 
-class EmailFactory extends Factory
+class randomEmailsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,9 +14,9 @@ class EmailFactory extends Factory
      */
     public function definition()
     {
+        $emails = Email::all()->pluck('id')->toArray();
         return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->email,
+            'email_id' => $this->faker->randomElement($emails),
         ];
     }
 }

@@ -15,15 +15,17 @@ class CreateEmailTable extends Migration
     {
         Schema::create('email', function (Blueprint $table) {
             $table->id();
+            $table->string(('name'));
             $table->string('email');
-            $table->unsignedBigInteger('certificat_id')->nullable();
-            $table->foreign('certificat_id')->references('id')->on('certificat');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
+        Schema::table('certificat', function (Blueprint $table) {
+            $table->foreignId('email_id')->nullable()->references('id')->on('email');
+        });
     }
-
+    
     /**
      * Reverse the migrations.
      *

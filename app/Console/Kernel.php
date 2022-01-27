@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Http\Controllers\SendEmailController;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +16,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('send:email')->daily();
+        /* $schedule->call(SendEmailController::class, ['fiveteenDays'])->dailyAt('01:00');
+        $schedule->call(SendEmailController::class, ['oneDay'])->dailyAt('01:00');
+        $schedule->call(SendEmailController::class, ['now'])->dailyAt('01:00'); */
+        // * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
     }
 
     /**

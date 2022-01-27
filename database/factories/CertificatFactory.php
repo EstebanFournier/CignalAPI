@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Certificat;
+use App\Models\User;
+use App\Models\Email;
 
 class CertificatFactory extends Factory
 {
@@ -21,6 +23,8 @@ class CertificatFactory extends Factory
      */
     public function definition()
     {
+        $users = User::all()->pluck('id')->toArray();
+        $emails = Email::all()->pluck('id')->toArray();
         return [
             'projectName' => $this->faker->name,
             'type' => $this->faker->word,
@@ -28,7 +32,8 @@ class CertificatFactory extends Factory
             'description' => $this->faker->paragraph,
             'startDate' => $this->faker->date,
             'endDate' => $this->faker->date,
-//            'file' => $this->faker->file(),
+            'createdBy' => $this->faker->randomElement($users),
+            'email_id' => $this->faker->randomElement($emails),
         ];
     }
 }

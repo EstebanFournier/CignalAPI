@@ -14,7 +14,8 @@ class EmailController extends Controller
      */
     public function index()
     {
-        return Email::paginate(5);
+        return Email::all();
+        
     }
 
     /**

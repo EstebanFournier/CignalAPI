@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Certificat;
+use App\Traits\CertificatTrait;
 use Illuminate\Http\Request;
 
 class CertificatController extends Controller
 {
-    /**
+    /* /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    use CertificatTrait;
     public function index()
     {
-        return Certificat::all();
+        return $this->certificat();
     }
 
     /**

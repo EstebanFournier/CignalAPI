@@ -16,8 +16,12 @@ class Email extends Model
      */
     protected $table = 'email';
     protected $fillable = [
+        'name',
         'email',
-        'certificat_id',
         'user_id',
     ];
+
+    public function certificats(){
+        return $this->hasMany(Certificat::class);
+    }
 }

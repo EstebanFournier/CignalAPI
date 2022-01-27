@@ -16,10 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         $this->call(UsersTableSeeder::class);
-        $this->call(CertificatTableSeeder::class);
         $this->call(AlertTableSeeder::class);
         $this->call(EmailTableSeeder::class);
+        $this->call(CertificatTableSeeder::class);
+        
+        /* $emails = Email::all()->pluck('id')->toArray();
+        var_dump($emails);
+        $faker = Faker::create();
+        if (DB::table('certificat')->insert(['email_id' => $faker->randomElement($emails),])) {
+            var_dump('ok', DB::table('certificat')->insert(['email_id' => $faker->randomElement($emails),]));
+        } else {
+            var_dump('error');
+        } */
     }
 }

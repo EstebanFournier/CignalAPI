@@ -14,6 +14,6 @@ class CertificatTableSeeder extends Seeder
      */
     public function run()
     {
-        Certificat::factory(10)->create();        
+        Certificat::factory(10)->create();
     }
 }

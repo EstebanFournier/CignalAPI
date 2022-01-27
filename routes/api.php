@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CertificatController;
 use App\Http\Controllers\AlertController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\SendEmailController;
+
 
 
 /*
@@ -35,6 +37,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('/certificat/{id}', [CertificatController::class, 'update']);
     Route::delete('/certificat/{id}', [CertificatController::class, 'destroy']);
 
+    //Send emails routes
+    Route::get('/emails/15', [SendEmailController::class, 'fiveteenDays']);
+    Route::get('/emails/1', [SendEmailController::class, 'oneDay']);
+    Route::get('/emails/0', [SendEmailController::class, 'now']);
+
     // Alerts routes
     Route::get('/alert', [AlertController::class, 'index']);
     Route::put('/alert', [AlertController::class, 'store']);
@@ -51,7 +58,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // Logout route
     Route::post('/logout', [AuthController::class, 'logout']);
-
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
