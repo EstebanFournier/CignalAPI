@@ -38,6 +38,10 @@ class SendEmailCommand extends Command
      */
     public function handle()
     {
-        return SendEmailController::class;
+        $checkEmail = (new SendEmailController)->fiveteenDays();
+        $checkEmail += (new SendEmailController)->oneDay();
+        $checkEmail += (new SendEmailController)->now();
+
+        return $checkEmail;
     }
 }
