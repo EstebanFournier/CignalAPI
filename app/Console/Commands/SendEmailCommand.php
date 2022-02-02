@@ -38,9 +38,12 @@ class SendEmailCommand extends Command
      */
     public function handle()
     {
-        $checkEmail = (new SendEmailController)->fiveteenDays();
-        $checkEmail += (new SendEmailController)->oneDay();
-        $checkEmail += (new SendEmailController)->now();
+        $checkEmail = (new SendEmailController)->fiveteenDaysCertificat();
+        $checkEmail += (new SendEmailController)->oneDayCertificat();
+        $checkEmail += (new SendEmailController)->nowCertificat();
+        $checkEmail = (new SendEmailController)->fiveteenDaysAlert();
+        $checkEmail += (new SendEmailController)->oneDayAlert();
+        $checkEmail += (new SendEmailController)->nowAlert();
 
         return $checkEmail;
     }

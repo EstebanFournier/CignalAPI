@@ -21,4 +21,9 @@ class Alert extends Model
         'certificat_id',
         'description',
     ];
+
+    public function certificat()
+    {
+        return $this->belongsTo(Certificat::class);
+    }
 }
