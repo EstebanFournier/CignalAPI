@@ -13,6 +13,8 @@ class Kernel extends ConsoleKernel
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
+     * Fonction permettant l'appel des commandes dans le fichier SendEmailCommands.
+     * C'est ce fichier qui est appelé par crontab.
      */
     protected function schedule(Schedule $schedule)
     {

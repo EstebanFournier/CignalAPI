@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * Trait permettant l'envoi des emails.
+ */
+
 namespace App\Traits;
 
 trait SendEmailTrait
 {
+
+    /**
+     * Envoi les emails de fin de validité de certificat.
+     */
     public function sendEmailCertificat($name, $to, $days)
     {
         require_once('../vendor/autoload.php');
@@ -44,6 +52,9 @@ trait SendEmailTrait
         }
     }
 
+    /**
+     * Envoi les emails d'alertes.
+     */
     public function sendEmailAlert($name, $to, $days)
     {
         require_once('../vendor/autoload.php');

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Model de la table Email
+ */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +13,7 @@ class Email extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -21,7 +25,11 @@ class Email extends Model
         'user_id',
     ];
 
-    public function certificats(){
+    /**
+     * Retourne les certificats liés à l'email passé en paramètre.
+     */
+    public function certificats()
+    {
         return $this->hasMany(Certificat::class);
     }
 }

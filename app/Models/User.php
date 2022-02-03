@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Model de la table User.
+ */
+
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;

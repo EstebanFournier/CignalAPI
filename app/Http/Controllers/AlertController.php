@@ -1,5 +1,9 @@
 <?php
 
+/** 
+ * Fichier contenant les fonctions des alertes.
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\Alert;
@@ -11,6 +15,7 @@ class AlertController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Database\Eloquent\Collection
+     * Retourne toute la table Alert.
      */
     public function index()
     {
@@ -22,6 +27,7 @@ class AlertController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \App\Models\Alert
+     * Ajoute une alerte et retourn celle ajouté.
      */
     public function store(Request $request)
     {
@@ -40,6 +46,7 @@ class AlertController extends Controller
      *
      * @param  \App\Models\Alert  $id
      * @return \Illuminate\Database\Eloquent\Collection
+     * Retourn toutes les données d'une alerte en fonction de son id.
      */
     public function show($id)
     {
@@ -52,6 +59,7 @@ class AlertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Alert  $id
      * @return \Illuminate\Http\Response
+     * Met à jour les données d'une alerte et retourn les nouvelles données.
      */
     public function update(Request $request, $id)
     {
@@ -65,6 +73,7 @@ class AlertController extends Controller
      *
      * @param  \App\Models\Alert  $id
      * @return \Illuminate\Http\Response
+     * Supprime l'alerte.
      */
     public function destroy($id)
     {

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Fichier contenant les fonctionnalités de la table Email.
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\Email;
@@ -11,11 +15,11 @@ class EmailController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * Retourne toutes les données de la table Email.
      */
     public function index()
     {
         return Email::all();
-        
     }
 
     /**
@@ -23,15 +27,12 @@ class EmailController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * Permet d'enregistrer un nouvel email et retourn celui-ci.
      */
     public function store(Request $request)
     {
         $request->validate([
             'email' => 'required',
-            /**
-            *'certificat_id' => 'required',
-            *'user_id' => 'required',
-            */
         ]);
 
         return Email::create($request->all());
@@ -42,6 +43,7 @@ class EmailController extends Controller
      *
      * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
+     * Permet de voir les détails d'un email en fonction de son id.
      */
     public function show($id)
     {
@@ -54,6 +56,7 @@ class EmailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
+     * Permet de mettre à jour les données d'un email en fonction de l'id et retourne ses données.
      */
     public function update(Request $request, $id)
     {
@@ -67,6 +70,7 @@ class EmailController extends Controller
      *
      * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
+     * Supprime un email en fonction de l'id
      */
     public function destroy($id)
     {

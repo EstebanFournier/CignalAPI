@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Trait permettant la comparaison des dates et la récupérations des données nécéssaire aux emails.
+ */
+
 namespace App\Traits;
 
 use App\Models\Alert;
@@ -8,11 +12,9 @@ use Carbon\Carbon;
 trait AlertTrait
 {
 
-    /* public function alert()
-    {
-        return Certificat::all();
-    } */
-
+    /**
+     * Compare la date des alertes avec la date d'aujourd'hui + 15 jours puis récupère les données des certificats liés.
+     */
     public function alertEndDateSubTwoWeeks()
     {
         $today = Carbon::today();
@@ -22,6 +24,9 @@ trait AlertTrait
         });
     }
 
+    /**
+     * Compare la date des alertes avec la date d'aujourd'hui + 1 jours puis récupère les données des certificats liés.
+     */
     public function alertEndDateSubOneDay()
     {
         $today = Carbon::today();
@@ -31,6 +36,9 @@ trait AlertTrait
         });
     }
 
+    /**
+     * Compare la date des alertes avec la date d'aujourd'hui puis récupère les données des certificats liés.
+     */
     public function alertEndDateNow()
     {
         $today = Carbon::today();

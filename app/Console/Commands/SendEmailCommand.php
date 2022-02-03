@@ -1,4 +1,9 @@
 <?php
+/**
+ * Fichier de Commands permettant grâce à crontab, d'executer la recherche de certificats et d'alertes
+ * à envoyer.
+ */
+
 
 namespace App\Console\Commands;
 

@@ -1,16 +1,22 @@
 <?php
 
+/**
+ * Fichier contenant les fonctions d'authentification, d'enregistrement et de déconnexion.
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
 
+    /**
+     * Permet de créer un utilisateur et retourne ses données.
+     */
     public function register(Request $request)
     {
         $fields = $request->validate([
@@ -35,6 +41,9 @@ class AuthController extends Controller
         return response($response, 201);
     }
 
+    /**
+     * Permet se connecté et retourne ses données.
+     */
     public function login(Request $request)
     {
         $fields = $request->validate([
@@ -62,6 +71,9 @@ class AuthController extends Controller
         return response($response, 201);
     }
 
+    /**
+     * Permet de se déconnecté et de supprimer le token dans la base de données.
+     */
     public function logout(Request $request)
     {
         auth()->user()->tokens()->delete();
@@ -69,5 +81,13 @@ class AuthController extends Controller
         return [
             'message' => 'Logged out'
         ];
+    }
+
+    /**
+     * Permet de récupérer toute la table User.
+     */
+    public function index()
+    {
+        return User::all();
     }
 }

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Fichier contenant les fonctions de la table Certificat.
+ */
+
 namespace App\Http\Controllers;
 
 use App\Models\Certificat;
@@ -12,6 +16,7 @@ class CertificatController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * Utilisation d'un Trait pour retourner toutes les données de la table Certificat.
      */
     use CertificatTrait;
     public function index()
@@ -24,6 +29,7 @@ class CertificatController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * Permet l'enregistrement d'un nouveau certificat et retourne les données enregistré.
      */
     public function store(Request $request)
     {
@@ -44,6 +50,7 @@ class CertificatController extends Controller
      *
      * @param  \App\Models\Certificat  $certificat
      * @return \Illuminate\Http\Response
+     * Permet de voir le détails d'un certificat en fonction de l'id.
      */
     public function show($id)
     {
@@ -56,6 +63,7 @@ class CertificatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Certificat  $certificat
      * @return \Illuminate\Http\Response
+     * Mettre à jour un certificat en fonction de l'id et retourne les nouvelles données.
      */
     public function update(Request $request, $id)
     {
@@ -69,6 +77,7 @@ class CertificatController extends Controller
      *
      * @param  \App\Models\Certificat  $certificat
      * @return \Illuminate\Http\Response
+     * Supprime le certificat.
      */
     public function destroy($id)
     {

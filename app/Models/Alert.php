@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Model de la table Alert.
+ */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,6 +26,9 @@ class Alert extends Model
         'description',
     ];
 
+    /**
+     * Retourne les certificats liés à l'alerte passé en paramètre.
+     */
     public function certificat()
     {
         return $this->belongsTo(Certificat::class);
